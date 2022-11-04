@@ -172,7 +172,10 @@ def main():
             announce_draw()
             break
 
-    integration()
+    if wants_to_play_again():
+        main()
+    else:
+        integration()
 
 
 if __name__ == '__main__':
