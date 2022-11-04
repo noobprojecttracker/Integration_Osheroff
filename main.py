@@ -60,6 +60,9 @@ def find_winner(spots):  # can detect any winner on horizontal, vertical, or dia
 
     return False
 
+    # The code below is the original way that I used to check for winners, but I thought of a more efficient way to
+    # do that task by using the above code.
+
     # if spots[1] == spots[2] == spots[3]:
     #     return True
     # elif spots[4] == spots[5] == spots[6]:
@@ -99,6 +102,9 @@ def wants_to_play_again():
 def create_user():
     user = input('Enter a letter to represent your user: ')
     while len(user) > 1: # The > operator checks to see if the left value is greater than the right value
+        # I have to make sure that a user's character length is not greater than one, or else
+        # the printing of the board will be messed up.
+        print('Usernames must be 1 character long!')
         user = input('Enter a letter to represent your user: ')
     return user
 
@@ -138,6 +144,9 @@ def main():
 
     user_one = create_user()
     user_two = create_user()
+    while user_two == user_one: # I use this loop to make sure that two users can not share the same name.
+        print('This username is already taken!')
+        user_two = create_user()
     turns = 0
     letter = None
 
